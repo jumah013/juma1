@@ -1,0 +1,38 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8">
+          <div class="contact-form">
+              <div class="section-heading">
+                  <h2>Get In Touch-{{message_name}}</h2>
+                  <div class="line"></div>
+              </div>
+              <!--form section-->
+              <form action="{% url 'contact' %}" method="POST">
+                  {% csrf_token%}
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <label for="message_name">Name:</label>
+                          <input type="text" name="message_name" class="form-control mb-30" placeholder="Your name">
+                      </div>
+                      <div class="col-lg-6">
+                          <label for="message_email">Email:</label>
+                        <input type="email" name="message_email" class="form-control mb-30" placeholder="Your Email" required>
+                    </div>
+                      <div class="col-12">
+                          <label for="message">Message:</label>
+                        <textarea name="message" class="form-control mb-30" placeholder="Message"></textarea>
+
+                      </div>
+                      <div class="col-12">
+                          <button type="submit" class="btn btn-four">Send message</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
